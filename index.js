@@ -4,12 +4,14 @@ for(var i=0; i<document.querySelectorAll(".buton").length; i++) {
 document.querySelectorAll(".buton")[i].addEventListener("click", function() {
   var buttonInnerHTML = this.innerHTML;
   myFunction(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
 });
 
 }
 
 document.addEventListener("keydown", function(event) {
   myFunction(event.key);
+  buttonAnimation(event.key);
 });
 
 
@@ -56,6 +58,13 @@ function myFunction(key) {
     }
 }
 
+function buttonAnimation (curretnKey) {
+  var activeButton = document.querySelector("." + curretnKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function(){
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
 
 
 
